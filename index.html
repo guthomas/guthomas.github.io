@@ -9,6 +9,16 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     
     <link rel="stylesheet" media="all" type="text/css" href="css/style.css"/>
+	  var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myObj = this.responseText;
+        var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
+        document.getElementById("demo").innerHTML = jsonPretty;
+    }
+};
+xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
+xmlhttp.send();
   </head>
   <body>
     <h1> Tp n°1 </h1>
